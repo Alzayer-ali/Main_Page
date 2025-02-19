@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 phy 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Icons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>اختيار طالب عشوائي - 6 فيز 2</h1>
+                <img src="photos/Logo.png" alt="">
+            </div>
+        </div>
+    </header>
+    <div class="all">
+        <div class="students-grid" id="studentsContainer"></div>
+        <div class="button-container">
+            <button class="random-btn" onclick="selectRandomstudent()">Pick Random student</button>
+            <button class="reset-btn" onclick="resetstudents()"><img class="reset-icon" src="photos/reload.png" alt=""></button>
+        </div>
+
+        <!-- Popup -->
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">
+            <img id="popupImage" src="" alt="student">
+            <h2 id="popupName"></h2>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">من نحن؟</a>
+                <a href="#">تواصل معنا</a>
+            </div>
+
+            <div class="social-icons">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin-in"></a>
+            </div>
+
+            <div class="copyright" dir="rtl">
+                &copy; إعداد الطالبين "علي الزاير - جعفر علي حسن"
+            </div>
+        </div>
+    </footer>
+    
+    <script src="JavaScript.js"></script>
+</body>
+</html>
