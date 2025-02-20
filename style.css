@@ -34,6 +34,9 @@ h1 {
     transition: transform 0.3s ease;
     position: relative;
     cursor: pointer;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .student-card:hover {
@@ -56,18 +59,15 @@ h1 {
 }
 
 .button-container {
-    text-align: center;
-    margin: 30px 0;
-    position: fixed; /* Or relative, as you prefer */
-    bottom: 20px; /* Or adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex; /* Changed back to flexbox for better control */
-    justify-content: center;
-    gap: 10px; /* Reduced gap to 10px - adjust as needed */ /* This is the key change */
-    font-family: "Tajawal", serif;
-    font-weight: 500;
-    font-style: normal;
+  /* ... other styles ... */
+  position: sticky;
+  bottom: 20px;
+  /* Remove left: 50% and transform: translateX(-50%); */
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  /* width: auto; or remove width property */
+margin: 40px 0 30px 0;
 }
 
 /* ... (rest of the CSS remains the same) */
@@ -75,7 +75,7 @@ h1 {
 .random-btn {
     padding: 10px 25px;
     font-size: 125%;
-    background-color: #2c2c2c;
+    background-color: #000000c0;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 25px;
@@ -116,7 +116,7 @@ button{
 .reset-btn {
     padding: 6px;
     font-size: 1.1em;
-    background-color: #2c2c2c;
+    background-color: #000000c0;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 2000px;
@@ -216,55 +216,136 @@ button{
 
 /* -------------------------------  HEADER  ----------------------------------- */
 
-/* style.css */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+}
+
 header {
-    background-color: #ffd900; /* Light gray background */
-    padding: 20px 30px; /* Adjust padding as needed */
-    position: relative; /* For potential positioning of elements within */
+  background: #111;
 }
 
-
-
-.logo img {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #333; /* Dark gray color */
-    width: 90px;
+.headline {
+  position: relative;
+  height: 536px;
+  color: #fff;
+  text-align: center;
+  background: url("photos/Class.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+.headline:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.747);
 }
 
+.inner {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  opacity: 0;
+  font-family: "Tajawal", serif;
+  font-weight: 500;
+  font-style: normal;
+  z-index: 10;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+          animation: fade-in 0.75s 0.25s ease-in forwards;
+}
+.inner h1 {
+  margin: 0;
+  font-size: 5.05em;
+  line-height: 1.2em;
+  color: #ffffff;
+}
+.inner p {
+  margin: 0;
+  font-size: 1.7em;
+}
 
-/* style.css */
-.header-content {
-    display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    align-items: center; /* Vertically center */
-    /* ... other styles ... */
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+nav.scrolled {
+  background: rgba(17, 17, 17, 0.9);
+}
+nav ul {
+  float: right;
+  list-style: none;
+  padding: 25px;
+  margin: 0;
+}
+nav li {
+  float: left;
+}
+nav a {
+  font-size: 0.9em;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0 0 20px;
+  display: block;
+}
+nav a:hover {
+  color: #ededed;
 }
 
 .logo {
-    /* Remove any float or text-align styles that might be conflicting */
-    float: none;
-    text-align: left; /* Or remove entirely */
-    margin-right: 0; /* Remove any right margin */
+  height: 75px;
+  float: left;
+}
+.logo:before, .logo:after {
+  position: absolute;
+  font-size: 7em;
+  font-weight: 300;
+  line-height: 0;
+  color: #fff;
+  top: 25px;
+}
+.logo:before {
+  content: '\00BB';
+  left: 20px;
+}
+.logo:after {
+  content: '\00AB';
+  left: 34px;
 }
 
-/* style.css */
-.header-content {
-    display: flex; /* Enable flexbox for the header content */
-
-    /* ... other header styles ... */
+section {
+  width: 100%;
+  margin: 25px auto;
+  padding: 20px;
+  max-width: 800px;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  box-sizing: border-box;
 }
 
-.logo {
-    display: flex; /* Enable flexbox for the logo container */
-    align-items: center; /* Vertically align items within the logo */
-    /* You might want to add some spacing between the image and the h1 */
-    gap: 30px; /* Or use margin-right on the image, etc. */
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-header h1{
-    justify-content: center;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 
@@ -292,6 +373,7 @@ footer {
 
 .footer-links {
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .footer-links a {

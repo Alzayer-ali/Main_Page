@@ -1,20 +1,33 @@
 const students = [
-    { name: 'فارس', image: 'photos/1.jpg'},
-    { name: 'جعفر حسن', image: 'photos/13.jpg'},
-    { name: 'جعفر حميد', image: 'photos/14.jpg'},
-    { name: 'ياسين', image: 'photos/20.jpg'},
-    { name: 'جعفر علي حسن', image: 'photos/22.jpg'},
-    { name: 'حسن عبد الهادي', image: 'photos/23.jpg'},
-    { name: 'أسلم', image: 'photos/25.jpg'},
-    { name: 'أحمد هاني الوردة', image: 'photos/29.jpg'},
-    { name: 'فارس', image: 'photos/1.jpg'},
-    { name: 'جعفر حسن', image: 'photos/13.jpg'},
-    { name: 'جعفر حميد', image: 'photos/14.jpg'},
-    { name: 'ياسين', image: 'photos/20.jpg'},
-    { name: 'جعفر علي حسن', image: 'photos/22.jpg'},
-    { name: 'حسن عبد الهادي', image: 'photos/23.jpg'},
-    { name: 'أسلم', image: 'photos/25.jpg'},
-    { name: 'أحمد هاني الوردة', image: 'photos/29.jpg'},
+    { name: 'فارس أمير حسن', image: 'student images/01.jpg' },
+    { name: 'محمد عبدالإله حمادة', image: 'student images/02.jpg' },
+    { name: 'سيد علي كامل', image: 'student images/03.jpg' },
+    { name: 'سيد هاشم محمد', image: 'student images/04.jpg' },
+    { name: 'محمد عباس فتر', image: 'student images/05.jpg' },
+    { name: 'حسين علي عيسى', image: 'student images/06.jpg' },
+    { name: 'منتظر حسن علي', image: 'student images/07.jpg' },
+    { name: 'حسن علي معيوف', image: 'student images/08.jpg' },
+    { name: 'علي حسين الرحيم', image: 'student images/09.jpg' },
+    { name: 'محمد عبدالله محمد', image: 'student images/10.jpg' },
+    { name: 'محمد ناجي محمد', image: 'student images/11.jpg' },
+    { name: 'مهدي شاكر الزاكي', image: 'student images/12.jpg' },
+    { name: 'جعفر حسن جعفر', image: 'student images/13.jpg' },
+    { name: 'جعفر حميد جعفر', image: 'student images/14.jpg' },
+    { name: 'محمد جعفر الكايد', image: 'student images/15.jpg' },
+    { name: 'محمد صادق عطية', image: 'student images/16.jpg' },
+    { name: 'حسين هاني الحواج', image: 'student images/17.jpg' },
+    { name: 'محمد حسين خليل', image: 'student images/18.jpg' },
+    { name: 'عمران يحيى مهدي', image: 'student images/19.jpg' },
+    { name: 'ياسين محمد لطف الله', image: 'student images/20.jpg' },
+    { name: 'علي حسين علي', image: 'student images/21.jpg' },
+    { name: 'جعفر علي حسن', image: 'student images/22.jpg' },
+    { name: 'حسن عبدالهادي فتيل', image: 'student images/23.jpg' },
+    { name: 'حسين علي الصالح', image: 'student images/24.jpg' },
+    { name: 'أسلم أحمد كامل', image: 'student images/25.jpg' },
+    { name: 'محمد عبدالهادي الخياط', image: 'student images/26.jpg' },
+    { name: 'علي حسن مكي  العكري', image: 'student images/27.jpg' },
+    { name: 'علي عبدالحسين مهدي', image: 'student images/28.jpg' },
+    { name: 'أحمد هاني ميرزا', image: 'student images/29.jpg' },
 ];
 
 let selectedStudentIndex = null;
@@ -40,7 +53,9 @@ function createStudentCards() {
         container.appendChild(card);
 
         card.addEventListener('click', () => {
-            showStudentPopup(index);
+            if (!card.classList.contains('completed')) {
+                showStudentPopup(index);
+            }
         });
     });
 }
@@ -70,6 +85,9 @@ function closePopup() {
     if (selectedStudentIndex !== null) {
         const selectedCard = document.getElementById(`student-${selectedStudentIndex}`);
         selectedCard.classList.add('completed');
+        selectedCard.removeEventListener('click', showStudentPopup);
+
+        checkAllCompleted();
     }
 }
 
@@ -93,9 +111,55 @@ function selectRandomstudent() {
 
 function resetstudents() {
     const cards = document.querySelectorAll('.student-card');
-    cards.forEach(card => {
+    cards.forEach((card, index) => {
         card.classList.remove('completed');
+        card.addEventListener('click', () => {
+            if (!card.classList.contains('completed')) {
+                showStudentPopup(index);
+            }
+        });
     });
+
+    document.querySelector('.button-container').style.display = 'flex';
+    document.getElementById('resetAllButton').style.display = 'none';
 }
 
-window.onload = createStudentCards;
+function checkAllCompleted() {
+    const allCompleted = Array.from(document.querySelectorAll('.student-card')).every(card => card.classList.contains('completed'));
+    if (allCompleted) {
+        document.querySelector('.button-container').style.display = 'none';
+
+        let resetAllButton = document.getElementById('resetAllButton');
+        if (!resetAllButton) {
+            resetAllButton = document.createElement('button');
+            resetAllButton.id = 'resetAllButton';
+            resetAllButton.textContent = 'إعادة تعيين الكل';
+            resetAllButton.className = 'random-btn';
+            resetAllButton.onclick = resetstudents;
+
+            // Center the button:
+            resetAllButton.style.display = 'block';
+            resetAllButton.style.margin = '20px auto'; // Add top margin and center
+            resetAllButton.style.textAlign = 'center'; // Center the text within the button (optional)
+
+            document.querySelector('.all').appendChild(resetAllButton);
+        } else {
+            // Make sure button is visible and centered if it already exists
+            resetAllButton.style.display = 'block';
+            resetAllButton.style.margin = '20px auto';
+            resetAllButton.style.textAlign = 'center';
+        }
+
+
+    } else {
+        document.querySelector('.button-container').style.display = 'flex';
+        let resetAllButton = document.getElementById('resetAllButton');
+        if (resetAllButton) {
+            resetAllButton.style.display = 'none';
+        }
+    }
+}
+window.onload = () => {
+    createStudentCards();
+    checkAllCompleted();
+};
