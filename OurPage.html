@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">الصفحة الرئيسية</a>
+            <a class="nav-link active" aria-current="page" href="html.html">الصفحة الرئيسية</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#about">من نحن</a>
@@ -104,7 +104,7 @@
           const stage = document.getElementById("stage").value;
           const message = document.getElementById("message").value;
           const phoneNumber = "+97337385899"; // Your WhatsApp number
-          const encodedMessage = encodeURIComponent(`Name: ${name}\nStage: ${stage}\nMessage: ${message}`);
+          const encodedMessage = encodeURIComponent(`الاسم: ${name}\n ${stage}\nالرسالة: ${message}`);
           const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
           window.open(whatsappURL, '_blank');
       }
