@@ -1,4 +1,10 @@
 /* AI Chat Button */
+*{
+  font-family: "Tajawal", serif;
+  font-weight: 400;
+  font-style: normal;
+  te
+}
 .ai-chat-button {
     position: fixed;
     bottom: 25px;
@@ -104,4 +110,5 @@
     background-color: #e9ecef;
     color: black;
     align-self: flex-start;
+    /* font-size: 14px; */
   }
