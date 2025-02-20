@@ -63,3 +63,17 @@ img{
 .text-center{
   font-weight: 400;
 }
+
+@media screen and (max-width: 550px) {
+  img{
+    /* width: 100px; */
+  }
+
+  .text-muted1{
+    margin-bottom: 70px;
+  }
+
+  .col-lg-6{
+    width: 90%;
+  }
+}
