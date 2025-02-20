@@ -17,68 +17,85 @@ const students = [
     { name: 'أحمد هاني الوردة', image: 'photos/29.jpg'},
 ];
 
-let selectedstudentIndex = null;
+let selectedStudentIndex = null;
 
-// Function to create student cards
-function createstudentCards() {
+function createStudentCards() {
     const container = document.getElementById('studentsContainer');
-    
+
     students.forEach((student, index) => {
         const card = document.createElement('div');
         card.className = 'student-card';
         card.id = `student-${index}`;
-        
+
         const img = document.createElement('img');
         img.src = student.image;
         img.alt = student.name;
-        
+
         const nameDiv = document.createElement('div');
         nameDiv.className = 'student-name';
         nameDiv.textContent = student.name;
-        
+
         card.appendChild(img);
         card.appendChild(nameDiv);
         container.appendChild(card);
+
+        card.addEventListener('click', () => {
+            showStudentPopup(index);
+        });
     });
 }
 
-// Function to select random student
-function selectRandomstudent() {
-    const availablestudents = students.filter((student, index) => !document.getElementById(`student-${index}`).classList.contains('completed'));
-    if (availablestudents.length === 0) {
-        alert('All students have been completed!');
-        return;
-    }
-
-    const randomIndex = Math.floor(Math.random() * availablestudents.length);
-    selectedstudentIndex = students.indexOf(availablestudents[randomIndex]);
-
-    // Show popup
-    document.getElementById('popupImage').src = students[selectedstudentIndex].image;
-    document.getElementById('popupName').textContent = students[selectedstudentIndex].name;
+function showStudentPopup(index) {
+    selectedStudentIndex = index;
+    document.getElementById('popupImage').src = students[index].image;
+    document.getElementById('popupName').textContent = students[index].name;
     document.getElementById('popup').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
+
+    let dontMarkButton = document.getElementById('dontMarkButton');
+    if (!dontMarkButton) {
+        dontMarkButton = document.createElement('button');
+        dontMarkButton.textContent = "إلفاء";
+        dontMarkButton.id = "dontMarkButton";
+        dontMarkButton.className = "popup-btn";
+        dontMarkButton.onclick = closePopupWithoutMarking;
+        document.getElementById('popup').appendChild(dontMarkButton);
+    }
 }
 
-// Function to close popup and mark student as completed
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 
-    if (selectedstudentIndex !== null) {
-        const selectedCard = document.getElementById(`student-${selectedstudentIndex}`);
+    if (selectedStudentIndex !== null) {
+        const selectedCard = document.getElementById(`student-${selectedStudentIndex}`);
         selectedCard.classList.add('completed');
     }
 }
 
-// Function to reset all students
+function closePopupWithoutMarking() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+
+function selectRandomstudent() {
+    const availableStudents = students.filter((student, index) => !document.getElementById(`student-${index}`).classList.contains('completed'));
+    if (availableStudents.length === 0) {
+        alert('All students have been completed!');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * availableStudents.length);
+    selectedStudentIndex = students.indexOf(availableStudents[randomIndex]);
+
+    showStudentPopup(selectedStudentIndex);
+}
+
 function resetstudents() {
     const cards = document.querySelectorAll('.student-card');
     cards.forEach(card => {
-        card.classList.remove('completed'); // Remove the 'completed' class
+        card.classList.remove('completed');
     });
-
 }
 
-// Initialize the page
-window.onload = createstudentCards;
+window.onload = createStudentCards;
