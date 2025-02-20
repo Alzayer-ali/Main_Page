@@ -12,6 +12,10 @@ body {
     padding: 20px;
 }
 
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+
 h1 {
     text-align: center;
     color: #333;
