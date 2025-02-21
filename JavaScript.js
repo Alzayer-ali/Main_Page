@@ -32,6 +32,8 @@ const students = [
 
 let selectedStudentIndex = null;
 
+count = 0;
+
 function createStudentCards() {
     const container = document.getElementById('studentsContainer');
 
@@ -82,10 +84,13 @@ function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 
+    count++;
+    document.getElementById('count').innerHTML = `${count}`;
+
     if (selectedStudentIndex !== null) {
         const selectedCard = document.getElementById(`student-${selectedStudentIndex}`);
         selectedCard.classList.add('completed');
-        selectedCard.removeEventListener('click', showStudentPopup);
+        selectedCard.removeEventListener('click', showStudentPopup);        
 
         checkAllCompleted();
     }
@@ -111,6 +116,8 @@ function selectRandomstudent() {
 
 function resetstudents() {
     const cards = document.querySelectorAll('.student-card');
+    count = 0;
+    document.getElementById('count').innerHTML = `${count}`;
     cards.forEach((card, index) => {
         card.classList.remove('completed');
         card.addEventListener('click', () => {

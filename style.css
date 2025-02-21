@@ -8,12 +8,12 @@ body {
     font-style: normal;
 }
 
-.all{
-    padding: 20px;
-}
-
 *{
   -webkit-tap-highlight-color: transparent;
+}
+
+.all{
+    padding: 20px;
 }
 
 h1 {
@@ -47,7 +47,7 @@ h1 {
 
 .student-card:hover {
     /* transform: translateY(-5px); */
-    transform: scale(1.05)
+    transform: scale(1.05);
 }
 
 .student-card img {
@@ -137,6 +137,34 @@ button{
 
 .reset-btn:hover{
     transform: scale(1.06)
+}
+
+
+.click-counter{
+  position: absolute;
+  top: 90%;
+  bottom: 0px;
+  left: 50%;
+  opacity: 0;
+  font-family: "Tajawal", serif;
+  font-weight: 500;
+  font-style: normal;
+  z-index: 10;
+  margin: 0px;
+  padding: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+          animation: fade-in 0.75s 0.25s ease-in forwards;
+}
+
+
+
+
+.click-counter h3{
+  /* width: 300px; */
+  display: inline-block;
+  margin: 40px 5px;
 }
 
 
@@ -459,11 +487,11 @@ footer {
   }
 
   .inner h1{
-    font-size: 70px;
+    font-size: 65px;
   }
 
   .inner p{
-    font-size: 23px;
+    font-size: 20px;
   }
 
   .random-btn{
@@ -494,5 +522,24 @@ footer {
 
   .popup-btn{
     margin: 0 7px 0 7px;
+  }
+
+  .click-counter{
+    position: absolute;
+    /* top: 75%; */
+    bottom: -40%;
+    left: 50%;
+    opacity: 0;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+    z-index: 10;
+    margin: 0px;
+    padding: 0;
+    font-size: 12px;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+            animation: fade-in 0.75s 0.25s ease-in forwards;
   }
 }
