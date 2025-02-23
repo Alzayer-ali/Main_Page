@@ -548,28 +548,6 @@ footer {
     margin: 0 7px 0 7px;
   }
 
-  .click-counter{
-    position: absolute;
-    /* top: 75%; */
-    bottom: -40%;
-    left: 50%;
-    opacity: 0;
-    font-family: "Tajawal", serif;
-    font-weight: 500;
-    font-style: normal;
-    z-index: 10;
-    margin: 0px;
-    padding: 0;
-    font-size: 12px;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
-    -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
-            animation: fade-in 0.75s 0.25s ease-in forwards;
-  }
-}
-
-
-
 
 @media screen and (max-width: 1400px) {
   .students-grid {
@@ -649,6 +627,28 @@ footer {
     position: absolute;
     /* top: 75%; */
     bottom: -21%;
+    left: 50%;
+    opacity: 0;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+    z-index: 10;
+    margin: 0px;
+    padding: 0;
+    font-size: 12px;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+            animation: fade-in 0.75s 0.25s ease-in forwards;
+  }
+}
+
+
+
+  .click-counter{
+    position: absolute;
+    /* top: 75%; */
+    bottom: -40%;
     left: 50%;
     opacity: 0;
     font-family: "Tajawal", serif;
