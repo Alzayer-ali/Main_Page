@@ -64,18 +64,6 @@ h1 {
     color: #444;
 }
 
-.student-id {
-  background-color: #00000029;
-  width: fit-content;
-  padding: 4px 7px;
-  font-size: 1em;
-  position: absolute;
-  right: 6px;
-  top: 6px;
-  border-radius: 8px;
-  color: #fff;
-}
-
 .button-container {
   /* ... other styles ... */
   position: sticky;
@@ -220,18 +208,6 @@ button{
 .popup h2 {
     margin: 15px 0;
     color: #333;
-}
-
-#popupId {
-  background-color: #00000029;
-  width: fit-content;
-  padding: 4px 7px;
-  font-size: 1em;
-  position: absolute;
-  right: 28px;
-  top: 28px;
-  border-radius: 8px;
-  color: #fff;
 }
 
 .popup button {
