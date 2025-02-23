@@ -1,33 +1,33 @@
 const students = [
-    { name: 'فارس أمير حسن', image: 'student_images/01.jpg', id:"01" },
-    { name: 'محمد عبدالإله حمادة', image: 'student_images/02.jpg', id:"02" },
-    { name: 'سيد علي كامل', image: 'student_images/03.jpg', id:"03" },
-    { name: 'سيد هاشم محمد', image: 'student_images/04.jpg', id:"04" },
-    { name: 'محمد عباس فتر', image: 'student_images/05.jpg', id:"05" },
-    { name: 'حسين علي عيسى', image: 'student_images/06.jpg', id:"06" },
-    { name: 'منتظر حسن علي', image: 'student_images/07.jpg', id:"07" },
-    { name: 'حسن علي معيوف', image: 'student_images/08.jpg', id:"08" },
-    { name: 'علي حسين الرحيم', image: 'student_images/09.jpg', id:"09" },
-    { name: 'محمد عبدالله محمد', image: 'student_images/10.jpg', id:"10" },
-    { name: 'محمد ناجي محمد', image: 'student_images/11.jpg', id:"11" },
-    { name: 'مهدي شاكر الزاكي', image: 'student_images/12.jpg', id:"12" },
-    { name: 'جعفر حسن جعفر', image: 'student_images/13.jpg', id:"13" },
-    { name: 'جعفر حميد جعفر', image: 'student_images/14.jpg', id:"14" },
-    { name: 'محمد جعفر الكايد', image: 'student_images/15.jpg', id:"15" },
-    { name: 'محمد صادق عطية', image: 'student_images/16.jpg', id:"16" },
-    { name: 'حسين هاني الحواج', image: 'student_images/17.jpg', id:"17" },
-    { name: 'محمد حسين خليل', image: 'student_images/18.jpg', id:"18" },
-    { name: 'عمران يحيى مهدي', image: 'student_images/19.jpg', id:"19" },
-    { name: 'ياسين محمد لطف الله', image: 'student_images/20.jpg', id:"20" },
-    { name: 'علي حسين علي', image: 'student_images/21.jpg', id:"21" },
-    { name: 'جعفر علي حسن', image: 'student_images/22.jpg', id:"22" },
-    { name: 'حسن عبدالهادي فتيل', image: 'student_images/23.jpg', id:"23" },
-    { name: 'حسين علي الصالح', image: 'student_images/24.jpg', id:"24" },
-    { name: 'أسلم أحمد كامل', image: 'student_images/25.jpg', id:"25" },
-    { name: 'محمد عبدالهادي الخياط', image: 'student_images/26.jpg', id:"26" },
-    { name: 'علي حسن مكي  العكري', image: 'student_images/27.jpg', id:"27" },
-    { name: 'علي عبدالحسين مهدي', image: 'student_images/28.jpg', id:"28" },
-    { name: 'أحمد هاني ميرزا', image: 'student_images/29.jpg', id:"29" },
+    { name: 'فارس أمير حسن', image: 'student_images/01.jpg' },
+    { name: 'محمد عبدالإله حمادة', image: 'student_images/02.jpg' },
+    { name: 'سيد علي كامل', image: 'student_images/03.jpg' },
+    { name: 'سيد هاشم محمد', image: 'student_images/04.jpg' },
+    { name: 'محمد عباس فتر', image: 'student_images/05.jpg' },
+    { name: 'حسين علي عيسى', image: 'student_images/06.jpg' },
+    { name: 'منتظر حسن علي', image: 'student_images/07.jpg' },
+    { name: 'حسن علي معيوف', image: 'student_images/08.jpg' },
+    { name: 'علي حسين الرحيم', image: 'student_images/09.jpg' },
+    { name: 'محمد عبدالله محمد', image: 'student_images/10.jpg' },
+    { name: 'محمد ناجي محمد', image: 'student_images/11.jpg' },
+    { name: 'مهدي شاكر الزاكي', image: 'student_images/12.jpg' },
+    { name: 'جعفر حسن جعفر', image: 'student_images/13.jpg' },
+    { name: 'جعفر حميد جعفر', image: 'student_images/14.jpg' },
+    { name: 'محمد جعفر الكايد', image: 'student_images/15.jpg' },
+    { name: 'محمد صادق عطية', image: 'student_images/16.jpg' },
+    { name: 'حسين هاني الحواج', image: 'student_images/17.jpg' },
+    { name: 'محمد حسين خليل', image: 'student_images/18.jpg' },
+    { name: 'عمران يحيى مهدي', image: 'student_images/19.jpg' },
+    { name: 'ياسين محمد لطف الله', image: 'student_images/20.jpg' },
+    { name: 'علي حسين علي', image: 'student_images/21.jpg' },
+    { name: 'جعفر علي حسن', image: 'student_images/22.jpg' },
+    { name: 'حسن عبدالهادي فتيل', image: 'student_images/23.jpg' },
+    { name: 'حسين علي الصالح', image: 'student_images/24.jpg' },
+    { name: 'أسلم أحمد كامل', image: 'student_images/25.jpg' },
+    { name: 'محمد عبدالهادي الخياط', image: 'student_images/26.jpg' },
+    { name: 'علي حسن مكي  العكري', image: 'student_images/27.jpg' },
+    { name: 'علي عبدالحسين مهدي', image: 'student_images/28.jpg' },
+    { name: 'أحمد هاني ميرزا', image: 'student_images/29.jpg' },
 ];
 
 let selectedStudentIndex = null;
@@ -45,18 +45,12 @@ function createStudentCards() {
         const img = document.createElement('img');
         img.src = student.image;
         img.alt = student.name;
-        
-        const IdDiv = document.createElement('div');
-        IdDiv.className = 'student-id';
-        IdDiv.textContent = student.id;
-        
+
         const nameDiv = document.createElement('div');
         nameDiv.className = 'student-name';
         nameDiv.textContent = student.name;
 
-
         card.appendChild(img);
-        card.appendChild(IdDiv);
         card.appendChild(nameDiv);
         container.appendChild(card);
 
@@ -72,7 +66,6 @@ function showStudentPopup(index) {
     selectedStudentIndex = index;
     document.getElementById('popupImage').src = students[index].image;
     document.getElementById('popupName').textContent = students[index].name;
-    document.getElementById('popupId').textContent = students[index].id;
     document.getElementById('popup').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
 
