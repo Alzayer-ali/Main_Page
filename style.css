@@ -489,66 +489,6 @@ footer {
   }
 
 
-@media screen and (max-width: 550px) {
-  .students-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 20px;
-    max-width: 100%;
-    margin: 1rem auto; /* Adjusted margin */
-    direction: rtl;
-    /* Removed height: 190%; */
-    /* Removed ima; - incomplete property */
-  }
-
-  .headline {
-    position: relative;
-    color: #fff;
-    text-align: center;
-    background: url("photos/Class.jpg") no-repeat center; /* Removed fixed */
-    background-size: cover;
-    height: 1px;
-  }
-
-  .inner h1{
-    font-size: 65px;
-  }
-
-  .inner p{
-    font-size: 20px;
-  }
-
-  .random-btn{
-    width: 150px;
-    font-size: 90%;
-    padding: 3px;
-  }
-
-  .button-container{
-    gap: 3px;
-  }
-
-  .student-card img{
-    height: 170px;
-  }
-
-  .student-name{
-    font-size: 100%;
-  }
-
-  .popup{
-    padding: 0 0 20px 0;
-  }
-
-  .popup img{
-    margin: 20px;
-  }
-
-  .popup-btn{
-    margin: 0 7px 0 7px;
-  }
-
-
 @media screen and (max-width: 1400px) {
   .students-grid {
     display: grid;
@@ -645,6 +585,67 @@ footer {
 
 
 
+
+
+@media screen and (max-width: 550px) {
+  .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 20px;
+    max-width: 100%;
+    margin: 1rem auto; /* Adjusted margin */
+    direction: rtl;
+    /* Removed height: 190%; */
+    /* Removed ima; - incomplete property */
+  }
+
+  .headline {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    background: url("photos/Class.jpg") no-repeat center; /* Removed fixed */
+    background-size: cover;
+    height: 1px;
+  }
+
+  .inner h1{
+    font-size: 65px;
+  }
+
+  .inner p{
+    font-size: 20px;
+  }
+
+  .random-btn{
+    width: 150px;
+    font-size: 90%;
+    padding: 3px;
+  }
+
+  .button-container{
+    gap: 3px;
+  }
+
+  .student-card img{
+    height: 170px;
+  }
+
+  .student-name{
+    font-size: 100%;
+  }
+
+  .popup{
+    padding: 0 0 20px 0;
+  }
+
+  .popup img{
+    margin: 20px;
+  }
+
+  .popup-btn{
+    margin: 0 7px 0 7px;
+  }
+
   .click-counter{
     position: absolute;
     /* top: 75%; */
@@ -664,3 +665,5 @@ footer {
             animation: fade-in 0.75s 0.25s ease-in forwards;
   }
 }
+
+
