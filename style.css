@@ -152,6 +152,10 @@ button{
 }
 
 
+#resetAllButton{
+  position: sticky;
+}
+
 .click-counter{
   position: absolute;
   top: 90%;
@@ -616,7 +620,15 @@ footer {
     font-size: 20px;
   }
 
+
   .random-btn{
+    width: 150px;
+    font-size: 100%;
+    /* padding: 3px; */
+    height: 50px;
+  }
+
+  .random-btn2{
     width: 150px;
     font-size: 90%;
     padding: 3px;
