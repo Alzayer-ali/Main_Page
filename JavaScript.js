@@ -7,7 +7,7 @@ const students = [
     { name: 'حسين علي عيسى', image: 'student_images/06.jpg', id:"06" },
     { name: 'منتظر حسن علي', image: 'student_images/07.jpg', id:"07" },
     { name: 'حسن علي معيوف', image: 'student_images/08.jpg', id:"08" },
-    { name: 'علي حسين الرحيم', image: 'student_images/09.jpg', id:"09" },
+    { name: 'علي حسن الرحيم', image: 'student_images/09.jpg', id:"09" },
     { name: 'محمد عبدالله محمد', image: 'student_images/10.jpg', id:"10" },
     { name: 'محمد ناجي علي', image: 'student_images/11.jpg', id:"11" },
     { name: 'مهدي شاكر الزاكي', image: 'student_images/12.jpg', id:"12" },
@@ -25,7 +25,7 @@ const students = [
     { name: 'حسين علي الصالح', image: 'student_images/24.jpg', id:"24" },
     { name: 'أسلم أحمد كامل', image: 'student_images/25.jpg', id:"25" },
     { name: 'محمد عبدالهادي الخياط', image: 'student_images/26.jpg', id:"26" },
-    { name: 'علي حسن مكي  العكري', image: 'student_images/27.jpg', id:"27" },
+    { name: 'علي محمد مكي  العكري', image: 'student_images/27.jpg', id:"27" },
     { name: 'علي عبدالحسين مهدي', image: 'student_images/28.jpg', id:"28" },
     { name: 'أحمد هاني ميرزا', image: 'student_images/29.jpg', id:"29" },
 ];
