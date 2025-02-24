@@ -148,7 +148,7 @@ function checkAllCompleted() {
             resetAllButton = document.createElement('button');
             resetAllButton.id = 'resetAllButton';
             resetAllButton.textContent = 'إعادة تعيين الكل';
-            resetAllButton.className = 'random-btn';
+            resetAllButton.className = 'random-btn button-container';
             resetAllButton.onclick = resetstudents;
 
             // Center the button:
