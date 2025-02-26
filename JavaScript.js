@@ -27,7 +27,7 @@ const students = [
     { name: 'محمد عبدالهادي الخياط', image: 'student_images/26.jpg', id:"26" },
     { name: 'علي محمد مكي  العكري', image: 'student_images/27.jpg', id:"27" },
     { name: 'علي عبدالحسين مهدي', image: 'student_images/28.jpg', id:"28" },
-    { name: 'أحمد هاني ميرزا', image: 'student_images/29.jpg', id:"29" },
+    { name: 'أحمد هاني الوردة🌹', image: 'student_images/29.jpg', id:"29" },
 ];
 
 let selectedStudentIndex = null;
