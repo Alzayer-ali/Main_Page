@@ -1,0 +1,681 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0px;
+    background-color: #f0f0f0;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.all{
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 80%;
+    margin: 20px auto;
+    direction: rtl;
+}
+
+
+
+.student-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.student-card:hover {
+    /* transform: translateY(-5px); */
+    transform: scale(1.05);
+}
+
+.student-card img {
+    width: 100%;
+    height: 300px; /* Adjusted height for 3:4 aspect ratio */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-bottom: 2px solid #eee;
+}
+
+.student-name {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+.student-id {
+  background-color: #00000029;
+  width: fit-content;
+  padding: 4px 7px;
+  font-size: 1em;
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.button-container {
+  /* ... other styles ... */
+  position: sticky;
+  bottom: 20px;
+  /* Remove left: 50% and transform: translateX(-50%); */
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  /* width: auto; or remove width property */
+margin: 40px 0 30px 0;
+}
+
+/* ... (rest of the CSS remains the same) */
+
+.random-btn {
+    padding: 10px 25px;
+    font-size: 125%;
+    background-color: #000000c0;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.random-btn:hover{
+    transform: scale(1.05)
+}
+
+.reset-icon{
+    /* height: 70px; */
+    /* width: 70px; */
+    padding: opx;
+    /* align-items: center; */
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+button{
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+
+.reset-btn {
+    padding: 6px;
+    font-size: 1.1em;
+    background-color: #000000c0;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 2000px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 50px;
+    width: 50px;
+    /* justify-content: center; */
+    bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.reset-btn:hover{
+    transform: scale(1.06)
+}
+
+
+#resetAllButton{
+  position: sticky;
+}
+
+.click-counter{
+  position: absolute;
+  top: 90%;
+  bottom: 0px;
+  left: 50%;
+  opacity: 0;
+  font-family: "Tajawal", serif;
+  font-weight: 500;
+  font-style: normal;
+  z-index: 10;
+  margin: 0px;
+  padding: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+          animation: fade-in 0.75s 0.25s ease-in forwards;
+}
+
+
+
+
+.click-counter h3{
+  /* width: 300px; */
+  display: inline-block;
+  margin: 40px 5px;
+}
+
+
+.completed {
+    opacity: 0.6;
+    position: relative;
+}
+
+.completed::after {
+    content: "✔";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+/* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-align: center;
+    gap: 10px;
+}
+
+.popup img {
+    width: 225px; /* Adjusted for 3:4 aspect ratio */
+    height: 300px; /* Adjusted for 3:4 aspect ratio */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 10px;
+}
+
+.popup h2 {
+    margin: 15px 0;
+    color: #333;
+}
+
+#popupId {
+  background-color: #00000029;
+  width: fit-content;
+  padding: 4px 7px;
+  font-size: 1em;
+  position: absolute;
+  right: 28px;
+  top: 28px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.popup button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.9s;
+    transition: transform 0.3s ease;
+}
+
+
+.popup button:hover {
+    background-color: #000000;
+    /* transform: scale(1.02) */
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+
+@media screen and (max-width: 550px) {
+  .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 20px;
+    max-width: 100%;
+    margin: 1rem auto; /* Adjusted margin */
+    direction: rtl;
+    /* Removed height: 190%; */
+    /* Removed ima; - incomplete property */
+  }
+
+  .headline {
+    position: relative;
+    /* Removed height: 536px; */
+    min-height: 200px; /* Example min-height */
+    color: #fff;
+    text-align: center;
+    background: url("photos/Class.jpg") no-repeat center; /* Removed fixed */
+    background-size: cover;
+  }
+}
+
+/* -------------------------------  HEADER  ----------------------------------- */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+}
+
+header {
+  background: #111;
+}
+
+.headline {
+  position: relative;
+  height: 536px;
+  color: #fff;
+  text-align: center;
+  background: url("photos/Class.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+.headline:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.747);
+}
+
+.inner {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  opacity: 0;
+  font-family: "Tajawal", serif;
+  font-weight: 500;
+  font-style: normal;
+  z-index: 10;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+          animation: fade-in 0.75s 0.25s ease-in forwards;
+}
+.inner h1 {
+  margin: 0;
+  font-size: 5.05em;
+  line-height: 1.2em;
+  color: #ffffff;
+}
+.inner p {
+  margin: 0;
+  font-size: 1.7em;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+nav.scrolled {
+  background: rgba(17, 17, 17, 0.9);
+}
+nav ul {
+  float: right;
+  list-style: none;
+  padding: 25px;
+  margin: 0;
+}
+nav li {
+  float: left;
+}
+nav a {
+  font-size: 0.9em;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0 0 20px;
+  display: block;
+}
+nav a:hover {
+  color: #ededed;
+}
+
+.logo {
+  height: 75px;
+  float: left;
+}
+.logo:before, .logo:after {
+  position: absolute;
+  font-size: 7em;
+  font-weight: 300;
+  line-height: 0;
+  color: #fff;
+  top: 25px;
+}
+.logo:before {
+  content: '\00BB';
+  left: 20px;
+}
+.logo:after {
+  content: '\00AB';
+  left: 34px;
+}
+
+section {
+  width: 100%;
+  margin: 25px auto;
+  padding: 20px;
+  max-width: 800px;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  box-sizing: border-box;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+/* -------------------------------  FOOTER  ----------------------------------- */
+
+/* style.css */
+footer {
+    background-color: #333; /* Darker background color */
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #555; /* Slightly lighter border for contrast */
+    color: #eee; /* Light text color for contrast */
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ddd; /* Lighter link color */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #fff; /* White on hover */
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 5px;
+    font-size: 20px;
+    color: #aaa;  /* Light gray icon color */
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #fff; /* White on hover */
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999; /* Slightly lighter copyright color */
+}
+
+@media (max-width: 768px) {
+    .footer-links a {
+        display: block;
+        margin: 5px 0;
+    }
+  }
+
+
+@media screen and (max-width: 1400px) {
+  .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 85%;
+    margin: 1rem auto; /* Adjusted margin */
+    direction: rtl;
+    /* Removed height: 190%; */
+    /* Removed ima; - incomplete property */
+  }
+
+  .inner{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    opacity: 0;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+    z-index: 10;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+            animation: fade-in 0.75s 0.25s ease-in forwards;
+  }
+
+  .headline {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    background: url("photos/Class.jpg") no-repeat center; /* Removed fixed */
+    background-size: cover;
+    height: 280px;
+  }
+
+  .inner h1{
+    font-size: 71px;
+  }
+
+  .inner p{
+    font-size: 23px;
+  }
+
+  .random-btn{
+    width: 170px;
+    font-size: 110%;
+    padding: 9px;
+  }
+
+  .button-container{
+    gap: 12px;
+  }
+
+  .student-card img{
+    height: 250px;
+  }
+
+  .student-name{
+    font-size: 120%;
+  }
+
+  .popup{
+    padding: 0 0 20px 0;
+  }
+
+  .popup img{
+    margin: 20px;
+  }
+
+  .popup-btn{
+    margin: 0 7px 0 7px;
+  }
+
+  .click-counter{
+    position: absolute;
+    /* top: 75%; */
+    bottom: -21%;
+    left: 50%;
+    opacity: 0;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+    z-index: 10;
+    margin: 0px;
+    padding: 0;
+    font-size: 12px;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+            animation: fade-in 0.75s 0.25s ease-in forwards;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 550px) {
+  .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 20px;
+    max-width: 100%;
+    margin: 1rem auto; /* Adjusted margin */
+    direction: rtl;
+    /* Removed height: 190%; */
+    /* Removed ima; - incomplete property */
+  }
+
+  .headline {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    background: url("photos/Class.jpg") no-repeat center; /* Removed fixed */
+    background-size: cover;
+    height: 1px;
+  }
+
+  .inner h1{
+    font-size: 65px;
+  }
+
+  .inner p{
+    font-size: 20px;
+  }
+
+
+  .random-btn{
+    width: 150px;
+    font-size: 100%;
+    /* padding: 3px; */
+    height: 50px;
+  }
+
+  .random-btn2{
+    width: 150px;
+    font-size: 90%;
+    padding: 3px;
+  }
+
+  .button-container{
+    gap: 3px;
+  }
+
+  .student-card img{
+    height: 170px;
+  }
+
+  .student-name{
+    font-size: 100%;
+  }
+
+  .popup{
+    padding: 0 0 20px 0;
+  }
+
+  .popup img{
+    margin: 20px;
+  }
+
+  .popup-btn{
+    margin: 0 7px 0 7px;
+  }
+
+  .click-counter{
+    position: absolute;
+    /* top: 75%; */
+    bottom: -40%;
+    left: 50%;
+    opacity: 0;
+    font-family: "Tajawal", serif;
+    font-weight: 500;
+    font-style: normal;
+    z-index: 10;
+    margin: 0px;
+    padding: 0;
+    font-size: 12px;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+    -webkit-animation: fade-in 0.75s 0.25s ease-in forwards;
+            animation: fade-in 0.75s 0.25s ease-in forwards;
+  }
+}
+
+
