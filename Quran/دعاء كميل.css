@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #282E3D;
+    color: white;
+    transition: 0.7s;
+}
+
+#title{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.096);
+    padding: 15px;
+    font-size: 20px;
+    color: rgb(0, 177, 168);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.123);
+    transition: 0.5s;
+    font-family: 'Cairo', sans-serif;
+}
+
+p{
+    margin-top: 40px;
+    font-size: 160%;
+    text-align: justify;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align-last: right;
+    color: #7b8ebdd4;
+    line-height: 45px;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+
+}

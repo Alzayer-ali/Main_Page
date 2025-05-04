@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body{
+    background-color: #282E3D;
+    color: white;
+}
+
+#title{
+    background-color: rgba(0, 0, 0, 0.144);
+    /* border-bottom: 2px solid rgba(255, 255, 255, 0.274); */
+    text-align: center;
+    font-size: 20px;
+    padding: 8px;
+    color: #7B8EBD;
+    font-family: cairo;
+}
+
+#kumail{
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+#button{
+    text-align: center;
+    color: #7B8EBD;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.123);
+    padding: 15px 0px;
+    background-color: rgba(0, 0, 0, 0.333);
+    width: 92%;
+    border-radius: 5px;
+    font-family: 'Cairo', sans-serif;
+    margin: 20px auto;
+    transition: 0.5s;
+    font-family: 'Cairo', sans-serif;
+}
+#button:hover{
+    width: 97%;
+    transition: 0.15s;
+    color: aliceblue;
+}
