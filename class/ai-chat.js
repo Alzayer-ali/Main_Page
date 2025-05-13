@@ -7,8 +7,8 @@ const chatInput = document.getElementById('chatInput');
 const sendMessageButton = document.getElementById('sendMessageButton');
 
 // Gemini API Configuration
-// استخدام gemini-1.5-pro للحفاظ على السياق بشكل أفضل
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent'; // Replace with the actual API endpoint
+// استخدام gemini-2.0-flash
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'; // Replace with the actual API endpoint
 const GEMINI_API_KEY = 'AIzaSyB7E5Rxs11Csk_bm9si8UpGy05_S8Qlb1Q'; // Replace with your Gemini API key
 
 // مصفوفة لتخزين سجل المحادثة
@@ -117,11 +117,15 @@ async function getAIResponse(history) {
     }),
   });
 
+  // --- جزء مهم للتشخيص: تحقق من حالة الاستجابة ---
   if (!response.ok) {
     const errorBody = await response.text(); // محاولة قراءة نص الخطأ لفهم المشكلة
-    console.error("API Error Response:", errorBody);
+    console.error("API Error Response Status:", response.status); // سجل حالة الخطأ
+    console.error("API Error Response Body:", errorBody); // سجل جسم الخطأ
     throw new Error(`API request failed with status ${response.status}: ${errorBody}`);
   }
+  // -------------------------------------------------
+
 
   const data = await response.json();
 
@@ -134,23 +138,4 @@ async function getAIResponse(history) {
       // إرجاع قيمة فارغة أو رسالة خطأ لكي يتم التعامل معها في sendMessage
       return null;
   }
-}
-diff
-function addMessage(text, sender) {
-  const messageDiv = document.createElement('div');
-  messageDiv.classList.add('message', sender);
-
-  // معالجة النص:
-  // 1. استبدال علامات الأسطر الجديدة بـ <br>
-  // 2. استبدال النص بين ** بعلامات <strong> للخط الغامق
-  let formattedText = text.replace(/\n/g, '<br>');
-  // التعبير العادي يجد أي نص بين ** ** (مع مراعاة أن النص لا يحتوي على *)
-  formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-
-  // استخدام innerHTML لعرض النص المنسق
-  messageDiv.innerHTML = formattedText;
-
-  chatMessages.appendChild(messageDiv);
-  chatMessages.scrollTop = chatMessages.scrollHeight; // التمرير لأسفل لعرض أحدث رسالة
 }
