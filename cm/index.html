@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لعبة تخمين مطابقة الألوان</title>
+    <title>Color Match</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* الأنماط العامة للجسم والخلفية */
@@ -144,7 +144,7 @@
 
         <div class="flex justify-center gap-4">
             <button id="check-button" class="button-style btn-blue">
-                تحقق من التخمينات
+                تحقق
             </button>
             <button id="surrender-button" class="button-style btn-red">
                 استسلام
@@ -268,12 +268,12 @@
 
             // Update game message based on results
             if (correctCount === numberOfSquares && allGuessed) {
-                messageElement.textContent = `تهانينا! لقد خمنت جميع الألوان الـ ${numberOfSquares} بشكل صحيح! لقد فزت!`;
+                messageElement.textContent = `تهانينا!... لقد فُزْت`;
                 gameActive = false; // End the game
             } else if (!allGuessed) {
                 messageElement.textContent = 'الرجاء تخمين جميع المربعات قبل التحقق.';
             } else {
-                messageElement.textContent = `لديك ${correctCount} تخمينات صحيحة من ${numberOfSquares}. حاول مرة أخرى!`;
+                messageElement.textContent = `لديك ${correctCount} تخمين صحيح`;
             }
         }
 
