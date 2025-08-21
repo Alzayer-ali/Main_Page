@@ -1,0 +1,136 @@
+/* الألوان والخطوط الجديدة */
+body {
+    background-color: #000000;
+    color: #e4e2e2;
+    font-family: 'Tajawal', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.game-container {
+    background-color: #ffffff15; /* خلفية شفافة */
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    backdrop-filter: blur(5px); /* تأثير ضبابي إضافي */
+}
+
+/* العناوين والرسائل */
+.game-title {
+    font-size: 2.25rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.game-message {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    min-height: 40px;
+    margin-bottom: 1.5rem;
+}
+
+/* منطقة اللعبة (المربعات) */
+.game-area {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.game-square {
+    width: 3.75rem; /* 60px */
+    height: 3.75rem; /* 60px */
+    border: 2px solid #374151;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: #374151; /* لون رمادي افتراضي */
+}
+
+.game-square.selected {
+    /* border-width: 4px; */
+    border-color: #ffffff;
+}
+
+/* لوحة الألوان (الدوائر) */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.color-choice {
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease;
+}
+
+.color-choice:hover {
+    /* transform: scale(1.1); */
+}
+
+/* الأنماط الجديدة لربط الألوان بالمربعات */
+.game-square.diamond, .color-choice.diamond { background-color: #ff4545; }
+.game-square.gold, .color-choice.gold { background-color: #4586ff; }
+.game-square.custom-light, .color-choice.custom-light { background-color: #5bff77; }
+.game-square.green, .color-choice.green { background-color: #ffdb3d; }
+.game-square.dark-gray, .color-choice.dark-gray { background-color: #c953ff; }
+
+
+/* الأزرار */
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.game-button {
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.game-button:hover {
+    /* transform: scale(1.05); */
+}
+
+.game-button:focus {
+    outline: none;
+    /* box-shadow: 0 0 0 4px #c50000; */
+}
+
+.check-button { background-color: #ffffff15; }
+.check-button:hover { background-color: #ffffff25; }
+
+.surrender-button { background-color: #ffffff15; }
+.surrender-button:hover { background-color: #ffffff25; }
+
+.reset-button { background-color: #ff4848af; }
+.reset-button:hover { background-color: #ff3636; }
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 1.875rem;
+    }
+}
+
+*{
+    font-family: tajawal;
+}

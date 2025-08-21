@@ -1,0 +1,278 @@
+*{
+    font-family: "Tajawal";
+}
+body {
+    background-color: #000000;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff15;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 4rem;
+    /* border: 1px solid #ffffff18; */
+}
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 5px solid #ffffff25;
+}
+.profile-name {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #f9fafb;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+}
+.profile-about {
+    font-size: 1.25rem;
+    color: #d1d5db;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.projects-section {
+    margin-bottom: 4rem;
+}
+.projects-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #e4e2e2;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: -0.025em;
+    background-color: #ffffff15;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    /* border: 1px solid #4a5568; */
+}
+.project-card {
+    background-color: #ffffff15;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2); */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    /* border: 1px solid #374151; */
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5rem;
+    /* max-width: 100%; */
+}
+.project-card:hover {
+    transform: translateY(-0.5rem);
+    /* scale: 1.04; */
+    /* box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.4), 0 3px 6px -1px rgba(0, 0, 0, 0.3); */
+}
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+}
+.project-description {
+    font-size: 1.1rem;
+    color: #d1d5db;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+}
+.contact-section {
+    background-color: #ffffff15;
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2); */
+    margin-bottom: 0;
+    color: #ffffff;
+    /* border: 1px solid #374151; */
+}
+.contact-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    letter-spacing: -0.025em;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.social-icon {
+    font-size: 1.75rem;
+    color: #ffffffaf;
+    transition: color 0.3s ease;
+}
+.social-icon:hover {
+    color: #ffffff;
+    /* font-size: 1.76rem; */
+}
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    background-color: #ffffff15;
+    color: #f8fafc;
+    border-top: 1px solid #4a5568;
+    border-radius: 0.75rem;
+    margin-top: 4rem;
+}
+.top-border{
+    border-top: 1px solid #4a5568;
+}
+
+.scroll-container {
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+.scroll-container::-webkit-scrollbar {
+    height: 0.5rem;
+}
+.scroll-container::-webkit-scrollbar-track {
+    background: #ffffff15;
+    border-radius: 0.75rem;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #868686;
+    border-radius: 0.75rem;
+}
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+.project-card {
+    flex: 0 0 auto;
+    width: 90%;
+    max-width: 400px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    scroll-snap-align: start;
+    text-align: right;
+}
+.contact-button {
+    background-color: #ffffff13;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: 0;
+}
+.contact-button:hover {
+    background-color: #ffffff15;
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #ffffff15;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s;
+    /* margin-top: 1.5rem; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: 0;
+    bottom: 2px;
+}
+button:hover {
+    background-color: #ffffff15;
+    transform: scale(1.05);
+}
+
+button a{
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Media query for screens smaller than 640px (sm breakpoint in Tailwind is 640px) */
+@media (max-width: 640px) {
+    .profile-section {
+        padding: 2rem;
+    }
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    .profile-name {
+        font-size: 1.75rem;
+    }
+    .profile-about {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .projects-heading {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+    }
+    .project-card {
+        padding: 1.5rem;
+        max-width: 70%;
+    }
+    .project-title {
+        font-size: 1.25rem;
+    }
+    .project-description {
+        font-size: 0.9rem;
+    }
+    .contact-section {
+        padding: 2rem;
+        border: none;
+        /* margin: auto 3px auto 30px; */
+    }
+    .contact-heading {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+    .social-icons {
+        gap: 1rem;
+    }
+    .social-icon {
+        font-size: 1.5rem;
+    }
+    footer {
+        padding: 2rem;
+    }
+    .container{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 93%;
+    }
+}

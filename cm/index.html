@@ -4,159 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Match</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* الأنماط العامة للجسم والخلفية */
-        body {
-            font-family: 'Inter', sans-serif;
-            direction: rtl; /* اتجاه النص من اليمين لليسار للعربية */
-            background-color: #111827; /* خلفية داكنة جدًا للصفحة بأكملها */
-            color: #F9FAFB; /* لون النص الافتراضي الفاتح */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh; /* ارتفاع كامل للشاشة */
-            padding: 1rem;
-        }
-
-        /* حاوية اللعبة الرئيسية */
-        .game-container {
-            background-color: #1F2937; /* خلفية أغمق للوحة اللعبة الرئيسية */
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            max-width: 400px; /* تحديد أقصى عرض لضمان التناسب على الشاشات الصغيرة */
-            width: 100%;
-            text-align: center;
-        }
-
-        /* أنماط النص داخل الحاوية */
-        .text-title {
-            color: #E5E7EB; /* لون رمادي فاتح للعنوان */
-        }
-        .text-message {
-            color: #D1D5DB; /* لون رمادي فاتح للرسائل */
-            min-height: 40px; /* ضمان ارتفاع ثابت لرسالة اللعبة */
-        }
-
-        /* أنماط مربعات الألوان - جعلها مربعات متساوية الأبعاد وأصغر */
-        .color-box {
-            width: 60px; /* تقليل حجم العرض */
-            height: 60px; /* الارتفاع مطابق للعرض لضمان التربيع */
-            border: 2px solid #374151; /* حدود أغمق للمربعات */
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em; /* تقليل حجم الخط داخل المربع */
-            font-weight: bold;
-            user-select: none; /* منع تحديد النص */
-            transition: background-color 0.3s ease, border-color 0.3s ease; /* انتقال سلس */
-            flex-shrink: 0; /* منع المربعات من الانكماش */
-        }
-        .color-box.selected {
-            border-color: #60A5FA; /* حد أزرق فاتح للمربع المحدد */
-            border-width: 4px;
-        }
-
-        /* أنماط خيارات الألوان في اللوحة */
-        .color-choice {
-            display: inline-block;
-            width: 35px; /* تقليل حجم خيارات الألوان قليلاً */
-            height: 35px;
-            border-radius: 50%; /* لجعلها دائرية */
-            margin: 4px; /* تقليل الهامش */
-            cursor: pointer;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* ظل أوضح على الخلفية الداكنة */
-            transition: transform 0.2s ease; /* انتقال سلس عند التحويم */
-        }
-        .color-choice:hover {
-            transform: scale(1.1); /* تكبير عند التحويم */
-        }
-
-        /* منطقة اللعبة (المربعات الخمسة الآن) - مسافة أقل ومحسّنة */
-        .game-area {
-            display: flex;
-            gap: 8px; /* تقليل المسافة بين المربعات بشكل أكبر */
-            justify-content: center; /* توسيط المربعات أفقياً */
-            margin-bottom: 24px;
-        }
-
-        /* فئات ألوان Tailwind المخصصة */
-        .bg-diamond { background-color: #4A90E2; } /* أزرق مميز للماس */
-        .bg-gold { background-color: #F5A623; } /* أصفر مميز للذهبي */
-        .bg-custom-light { background-color: #ffddad; border: 2px solid #4B5563; } /* لون فاتح مخصص مع حد أغمق */
-        .bg-green-custom { background-color: #7ED321; } /* أخضر مميز */
-        .bg-dark-gray { background-color: #374151; } /* لون رمادي داكن */
-
-        /* أنماط الأزرار */
-        .button-style {
-            font-weight: bold;
-            padding: 0.5rem 1rem; /* حجم حشو أقل للأزرار */
-            border-radius: 0.375rem; /* زوايا مدورة أقل */
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* ظل أصغر */
-            transition: all 0.2s ease-in-out;
-            transform: scale(1);
-            font-size: 0.875rem; /* حجم خط أصغر */
-        }
-        .button-style:hover {
-            transform: scale(1.02); /* تكبير طفيف عند التحويم */
-        }
-        .button-style:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.5); /* حلقة تركيز زرقاء أصغر */
-        }
-
-        /* ألوان الأزرار المحددة */
-        .btn-blue { background-color: #3B82F6; color: #F9FAFB; }
-        .btn-blue:hover { background-color: #2563EB; }
-        .btn-red { background-color: #EF4444; color: #F9FAFB; }
-        .btn-red:hover { background-color: #DC2626; }
-        .btn-gray { background-color: #4B5563; color: #F9FAFB; }
-        .btn-gray:hover { background-color: #374151; }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    </head>
+<body dir="rtl">
     <div class="game-container">
-        <h1 class="text-3xl text-title mb-6">لعبة تخمين الألوان</h1>
-
-        <div id="message" class="text-lg text-message mb-4">
+        <h1 class="game-title">لعبة تخمين الألوان</h1>
+        <p id="message" class="game-message">
             انقر على مربع ثم اختر لونًا من لوحة الألوان.
-        </div>
-
+        </p>
         <div id="game-area" class="game-area">
-            <div id="square-0" class="color-box bg-gray-200" data-index="0"></div>
-            <div id="square-1" class="color-box bg-gray-200" data-index="1"></div>
-            <div id="square-2" class="color-box bg-gray-200" data-index="2"></div>
-            <div id="square-3" class="color-box bg-gray-200" data-index="3"></div>
-            <div id="square-4" class="color-box bg-gray-200" data-index="4"></div>
+            <div id="square-0" class="game-square" data-index="0"></div>
+            <div id="square-1" class="game-square" data-index="1"></div>
+            <div id="square-2" class="game-square" data-index="2"></div>
+            <div id="square-3" class="game-square" data-index="3"></div>
+            <div id="square-4" class="game-square" data-index="4"></div>
         </div>
-
-        <div id="color-palette" class="flex justify-center mb-6">
-            <div class="color-choice bg-diamond" data-color="diamond" title="الماس (أزرق)"></div>
-            <div class="color-choice bg-gold" data-color="gold" title="الذهبي (أصفر)"></div>
-            <div class="color-choice bg-custom-light" data-color="custom-light" title="لون فاتح مخصص"></div>
-            <div class="color-choice bg-green-custom" data-color="green" title="الأخضر)"></div>
-            <div class="color-choice bg-dark-gray" data-color="dark-gray" title="رمادي داكن"></div>
+        <div id="color-palette" class="color-palette">
+            <div class="color-choice diamond" data-color="diamond" title="الماس (أزرق)"></div>
+            <div class="color-choice gold" data-color="gold" title="الذهبي (أصفر)"></div>
+            <div class="color-choice custom-light" data-color="custom-light" title="لون فاتح مخصص"></div>
+            <div class="color-choice green" data-color="green" title="الأخضر"></div>
+            <div class="color-choice dark-gray" data-color="dark-gray" title="رمادي داكن"></div>
         </div>
-
-        <div class="flex justify-center gap-4">
-            <button id="check-button" class="button-style btn-blue">
+        <div class="game-buttons">
+            <button id="check-button" class="game-button check-button">
                 تحقق
             </button>
-            <button id="surrender-button" class="button-style btn-red">
+            <button id="surrender-button" class="game-button surrender-button">
                 استسلام
             </button>
-            <button id="reset-button" class="button-style btn-gray">
+            <button id="reset-button" class="game-button reset-button">
                 إعادة اللعبة
             </button>
         </div>
     </div>
+    <script src="script.js"></script>
 
     <script>
-        // Get DOM elements
+// Get DOM elements
+// Get DOM elements
         const squareElements = [
             document.getElementById('square-0'),
             document.getElementById('square-1'),
@@ -170,89 +59,78 @@
         const surrenderButton = document.getElementById('surrender-button');
         const resetButton = document.getElementById('reset-button');
 
-        // Define available colors and their Tailwind classes
+        // Define available colors and their custom class names
         const colors = {
-            diamond: { name: 'الماس (أزرق)', class: 'bg-diamond' },
-            gold: { name: 'الذهبي (أصفر)', class: 'bg-gold' },
-            'custom-light': { name: 'لون فاتح مخصص', class: 'bg-custom-light' },
-            green: { name: 'الأخضر', class: 'bg-green-custom' },
-            'dark-gray': { name: 'رمادي داكن', class: 'bg-dark-gray' }
+            diamond: { name: 'الماس (أزرق)', class: 'diamond' },
+            gold: { name: 'الذهبي (أصفر)', class: 'gold' },
+            'custom-light': { name: 'لون فاتح مخصص', class: 'custom-light' },
+            green: { name: 'الأخضر', class: 'green' },
+            'dark-gray': { name: 'رمادي داكن', class: 'dark-gray' }
         };
         const colorKeys = Object.keys(colors);
-        const numberOfSquares = 5; // Total number of squares in the game
+        const numberOfSquares = 5;
 
-        let hiddenColors = []; // Stores the random hidden colors for each square
-        let userGuesses = Array(numberOfSquares).fill(null); // Stores user's guesses for each square
-        let gameActive = true; // Game active status
-        let selectedSquareIndex = null; // To track the currently selected square
+        let hiddenColors = [];
+        let userGuesses = Array(numberOfSquares).fill(null);
+        let gameActive = true;
+        let selectedSquareIndex = null;
 
-        // Function to reset the game (start a new round)
         function resetGame() {
-            // Generate random hidden colors for each square
             hiddenColors = Array.from({ length: numberOfSquares }, () => colorKeys[Math.floor(Math.random() * colorKeys.length)]);
-            userGuesses = Array(numberOfSquares).fill(null); // Reset user guesses
+            userGuesses = Array(numberOfSquares).fill(null);
             gameActive = true;
-            selectedSquareIndex = null; // Clear selected square
+            selectedSquareIndex = null;
             messageElement.textContent = 'انقر على مربع ثم اختر لونًا من لوحة الألوان.';
             
-            // Reset square appearance to default
             squareElements.forEach(square => {
-                square.className = 'color-box bg-gray-200'; // Reset to default grey color
-                square.style.backgroundColor = ''; // Clear any directly set background color
-                square.classList.remove('selected'); // Remove any selection highlight
+                square.classList.remove('selected');
+                Object.values(colors).forEach(color => {
+                    square.classList.remove(color.class);
+                });
+                square.classList.add('game-square');
             });
         }
 
-        // Click handler for squares
         function handleSquareClick(event) {
-            if (!gameActive) return; // Do nothing if game is not active
+            if (!gameActive) return;
 
-            // Remove selection highlight from previously selected square (if any)
             if (selectedSquareIndex !== null) {
                 squareElements[selectedSquareIndex].classList.remove('selected');
             }
 
             const clickedSquare = event.target;
-            selectedSquareIndex = parseInt(clickedSquare.dataset.index); // Get the index of the clicked square
-            clickedSquare.classList.add('selected'); // Add selection highlight to the clicked square
+            selectedSquareIndex = parseInt(clickedSquare.dataset.index);
+            clickedSquare.classList.add('selected');
             messageElement.textContent = 'اختر لونًا من لوحة الألوان للمربع المحدد.';
         }
 
-        // Click handler for color choices in the palette
         function handleColorChoice(event) {
             if (!gameActive || selectedSquareIndex === null) {
                 if (selectedSquareIndex === null) {
                     messageElement.textContent = 'الرجاء النقر على مربع أولاً لتحديده.';
                 }
-                return; // Do nothing if game is not active or no square is selected
+                return;
             }
 
-            // Find the closest .color-choice element that was clicked
             const clickedColorChoice = event.target.closest('.color-choice');
-
-            // If a .color-choice element was not clicked, or it doesn't have a data-color, return
             if (!clickedColorChoice || !clickedColorChoice.dataset.color) {
                 return;
             }
 
-            const chosenColor = clickedColorChoice.dataset.color; // Get the chosen color from data-color attribute
-            const targetSquare = squareElements[selectedSquareIndex]; // Get the currently selected square
+            const chosenColor = clickedColorChoice.dataset.color;
+            const targetSquare = squareElements[selectedSquareIndex];
 
-            userGuesses[selectedSquareIndex] = chosenColor; // Update user's guess for this square
+            userGuesses[selectedSquareIndex] = chosenColor;
             
-            // Remove all previous color classes from the target square and apply the new one
             Object.values(colors).forEach(color => {
                 targetSquare.classList.remove(color.class);
             });
-            targetSquare.classList.add(colors[chosenColor].class); // Apply the chosen color's Tailwind class
-            // Set background color directly from the palette element to ensure exact color consistency
-            targetSquare.style.backgroundColor = getComputedStyle(clickedColorChoice).backgroundColor;
-
-            targetSquare.classList.remove('selected'); // Remove selection highlight after applying color
-            selectedSquareIndex = null; // Clear selected square
+            targetSquare.classList.add(colors[chosenColor].class);
+            
+            targetSquare.classList.remove('selected');
+            selectedSquareIndex = null;
         }
 
-        // Function to check guesses
         function checkGuesses() {
             if (!gameActive) return;
             let correctCount = 0;
@@ -260,16 +138,15 @@
 
             squareElements.forEach((square, index) => {
                 if (userGuesses[index] === null) {
-                    allGuessed = false; // Not all squares have been guessed yet
+                    allGuessed = false;
                 } else if (userGuesses[index] === hiddenColors[index]) {
-                    correctCount++; // Increment correct count if guess matches hidden color
+                    correctCount++;
                 }
             });
 
-            // Update game message based on results
             if (correctCount === numberOfSquares && allGuessed) {
                 messageElement.textContent = `تهانينا!... لقد فُزْت`;
-                gameActive = false; // End the game
+                gameActive = false;
             } else if (!allGuessed) {
                 messageElement.textContent = 'الرجاء تخمين جميع المربعات قبل التحقق.';
             } else {
@@ -277,27 +154,20 @@
             }
         }
 
-        // Function to surrender the game
         function surrenderGame() {
-            if (!gameActive) return; // Do nothing if game is not active
-            gameActive = false; // End the game
+            if (!gameActive) return;
+            gameActive = false;
             messageElement.textContent = 'لقد استسلمت! الألوان الصحيحة هي:';
             
-            // Reveal the correct colors in the squares
             squareElements.forEach((square, index) => {
-                // Remove any previous selection or guess classes
                 square.classList.remove('selected');
                 Object.values(colors).forEach(color => {
                     square.classList.remove(color.class);
                 });
-                // Apply the correct color's Tailwind class
                 square.classList.add(colors[hiddenColors[index]].class);
-                // Set background color directly to ensure exact color consistency
-                square.style.backgroundColor = getComputedStyle(document.querySelector(`[data-color="${hiddenColors[index]}"]`)).backgroundColor;
             });
         }
 
-        // Add event listeners to squares, color palette, and buttons
         squareElements.forEach(square => {
             square.addEventListener('click', handleSquareClick);
         });
@@ -306,9 +176,9 @@
         resetButton.addEventListener('click', resetGame);
         surrenderButton.addEventListener('click', surrenderGame);
 
-        // Initialize the game when the page loads
         document.addEventListener('DOMContentLoaded', resetGame);
     </script>
 </body>
 </html>
 
+    
